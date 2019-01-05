@@ -2,7 +2,7 @@
 const zmq = require("zeromq")
 const mingo = require("mingo")
 const bcode = require("bcode")
-const jq = require("bigjq")
+const jq = require("fountainhead-bigjq")
 const defaults = { host: "127.0.0.1", port: 28339 }
 const init = function(config) {
   let sock = zmq.socket("sub")
