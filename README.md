@@ -6,12 +6,12 @@ message bus for bitcoin
 
 bitsocketd has a dependency on bitdb.
 
-[Install bitd](https://docs.bitdb.network/docs/install)
+[Install bitd](https://docs.fountainhead.cash/docs/install)
 
 # Install
 
 ```
-npm install --save bitsocketd
+npm install --save fountainhead-bitsocketd
 ```
 
 # Usage
@@ -21,7 +21,7 @@ npm install --save bitsocketd
 If you already have BitDB running on port 28339, you can simply do this:
 
 ```
-const bitsocketd = require('bitsocketd')
+const bitsocketd = require('fountainhead-bitsocketd')
 bitsocketd.init()
 ```
 
@@ -40,7 +40,7 @@ That's the raw firehose. You probably don't want to consume the whole thing, so 
 You can specify the Zeromq subscriber from a bitdb node, like this:
 
 ```
-const bitsocketd = require('bitsocketd')
+const bitsocketd = require('fountainhead-bitsocketd')
 bitsocketd.init({
   bit: { host: "127.0.0.1", port: 28339 },
 })
@@ -54,7 +54,7 @@ By default Bitdb's zeromq publisher broadcasts to [port 28339](https://github.co
 By default, the SSE port is automatically 3001. You can customize this:
 
 ```
-const bitsocketd = require('bitsocketd')
+const bitsocketd = require('fountainhead-bitsocketd')
 bitsocketd.init({
   socket: { port: 3001 }
 })
@@ -71,7 +71,7 @@ app.listen(3000 , function () {
 })
 
 // Step 2. pass the express server to bitsocketd
-const bitsocketd = require('bitsocketd')
+const bitsocketd = require('fountainhead-bitsocketd')
 bitsocketd.init({
   socket: { app: app }
 })
