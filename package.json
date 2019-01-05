@@ -1,6 +1,6 @@
 {
   "name": "fountainhead-bitsocketd",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The message bus for bitcoin",
   "main": "index.js",
   "scripts": {
