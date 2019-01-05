@@ -21,8 +21,12 @@ npm install --save fountainhead-bitsocketd
 If you already have BitDB running on port 28339, you can simply do this:
 
 ```
-const bitsocketd = require('fountainhead-bitsocketd')
-bitsocketd.init()
+git clone https://github.com/fountainhead-cash/bitsocket
+cd bitsocket
+npm install
+cp .env.example .env
+$(EDITOR) .env
+npm start
 ```
 
 You will see a screen like this:
