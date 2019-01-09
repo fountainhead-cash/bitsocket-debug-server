@@ -58,6 +58,9 @@ const init = function(config) {
       res.sseSetup()
       let json = Buffer.from(b64, "base64").toString()
       let query = JSON.parse(json)
+      if (! query.q) {
+          query.q = {};
+      }
 
       res.$fingerprint = fingerprint
       connections.pool[fingerprint] = { res: res, query: query }
