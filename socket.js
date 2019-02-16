@@ -3,9 +3,9 @@ const cors = require("cors")
 const express = require("express")
 const ip = require("ip")
 const bch = require("bitcore-lib-cash")
-const defaults = { port: 3001 }
+const defaults = { port: 4000 }
 const init = function(config) {
-  let app = (config.app ? config.app : express())
+  let app = express()
   let connections = config.connections
   app.use(cors())
   app.use(function (req, res, next) {
@@ -86,12 +86,12 @@ const init = function(config) {
     app.listen(port , function () {
       console.log("######################################################################################")
       console.log("#")
-      console.log("#  BITSOCKET: Universal Programmable Bitcoin Push Notifications Network")
-      console.log("#  Pushing Bitcoin in realtime through Server Sent Events...")
+      console.log("#  BITSOCKET DEBUG SERVER ")
+      console.log("#  Test Bitsocket queries using this service...")
       console.log("#")
       console.log(`#  API Endpoint: ${ip.address()}:${port}/s`)
       console.log("#")
-      console.log("#  Learn more at https://bitsocket.org")
+      console.log("#  Learn more at https://fountainhead.cash")
       console.log("#")
       console.log("######################################################################################")
     })

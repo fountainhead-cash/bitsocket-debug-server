@@ -1,27 +1,11 @@
-# bitsocketd
+# bitsocket-debug-server
 
-message bus for bitcoin
-
-# Prerequisites
-
-bitsocketd has a dependency on bitdb.
-
-[Install bitd](https://docs.fountainhead.cash/docs/install)
-
-# Install
-
-```
-npm install --save fountainhead-bitsocketd
-```
+Test bitsocket queries on your own provided transactions
 
 # Usage
 
-## 1. Basic
-
-If you already have BitDB running on port 28339, you can simply do this:
-
 ```
-git clone https://github.com/fountainhead-cash/bitsocket
+git clone https://github.com/fountainhead-cash/bitsocket-debug-server
 cd bitsocket
 npm install
 cp .env.example .env
@@ -37,46 +21,13 @@ Now open your browser to the socket URL and you'll see SSE pouring in.
 
 ![browser](img/raw.gif)
 
-That's the raw firehose. You probably don't want to consume the whole thing, so make sure to add a bitquery filter. Learn more at [https://bitsocket.org/docs](https://bitsocket.org/docs)
-
-## 2. Custom BitDB node
-
-You can specify the Zeromq subscriber from a bitdb node, like this:
-
-```
-const bitsocketd = require('fountainhead-bitsocketd')
-bitsocketd.init({
-  bit: { host: "127.0.0.1", port: 28339 },
-})
-```
-
-By default Bitdb's zeromq publisher broadcasts to [port 28339](https://github.com/21centurymotorcompany/bitd/blob/master/config.js#L44), but you can customize if you want.
+That's the raw firehose. You probably don't want to consume the whole thing, so make sure to add a bitquery filter. Learn more at [https://docs.fountainhead.cash](https://docs.fountainhead.cash)
 
 
-## 3. Custom SSE port
-
-By default, the SSE port is automatically 3001. You can customize this:
+# Changing transaction stream 
 
 ```
-const bitsocketd = require('fountainhead-bitsocketd')
-bitsocketd.init({
-  socket: { port: 3001 }
-})
+$(EDITOR) bit.js
 ```
 
-## 4. Use an existing express.js server
-
-```
-// Step 1. express.js web server init
-const express = require("express")
-const app = express()
-app.listen(3000 , function () {
-  console.log("web server listening at " + port)
-})
-
-// Step 2. pass the express server to bitsocketd
-const bitsocketd = require('fountainhead-bitsocketd')
-bitsocketd.init({
-  socket: { app: app }
-})
-```
+Within `streamfn` you can use the methods `send_mempool` and `send_block`, you probably want to have everything wrapped within `setInterval` but it isn't necessary. Provide the raw TNA from transactions you receive using BitDB without jq modification, or.. write a program to generate transactions for you. Use `setTimeout` to schedule a future transaction, this way you can develop something similar to what your app sees.

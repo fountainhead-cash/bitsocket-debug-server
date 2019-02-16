@@ -1,3 +1,4 @@
+require('dotenv').config()
 const bit = require("./bit")
 const socket = require("./socket")
 const init = function(config) {
@@ -16,4 +17,11 @@ const init = function(config) {
   socket.init(s)
 
 }
-module.exports = { init: init }
+
+init({
+    socket: {
+        port: process.env.bitsocket_port ? process.env.bitsocket_port : 4000
+    },
+    heartbeat: 10
+});
+

@@ -1,22 +1,23 @@
 {
-  "name": "fountainhead-bitsocketd",
-  "version": "0.1.4",
-  "description": "The message bus for bitcoin",
+  "name": "fountainhead-bitsocket-debug-server",
+  "version": "0.0.1",
+  "description": "Test bitsocket queries here",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint *.js"
+    "lint": "./node_modules/.bin/eslint *.js",
+    "start": "node index"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fountainhead-bcode": "0.0.6",
-    "fountainhead-bigjq": "0.0.13",
     "bitcore-lib-cash": "^0.18.1",
     "cors": "^2.8.4",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "fountainhead-bcode": "0.0.6",
+    "fountainhead-bigjq": "0.0.13",
     "ip": "^1.1.5",
-    "mingo": "^2.2.4",
-    "zeromq": "^5.0.0"
+    "mingo": "^2.2.4"
   },
   "devDependencies": {
     "eslint": "^5.7.0"
