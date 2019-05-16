@@ -10,12 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bitcore-lib-cash": "^0.18.1",
     "cors": "^2.8.4",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
-    "fountainhead-bcode": "0.0.6",
-    "fountainhead-bigjq": "0.0.13",
+    "fountainhead-core": "0.0.8",
     "ip": "^1.1.5",
     "mingo": "^2.2.4"
   },
