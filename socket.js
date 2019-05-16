@@ -2,7 +2,7 @@
 const cors = require("cors")
 const express = require("express")
 const ip = require("ip")
-const bch = require("bitcore-lib-cash")
+const bch = require("fountainhead-core").bitcore
 const defaults = { port: 4000 }
 const init = function(config) {
   let app = express()
